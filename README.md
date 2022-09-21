@@ -1,15 +1,18 @@
-# react-bootstrap-web3-android
-This is a fork of [react-bootstrap-web3-spa](https://github.com/Permissionless-Software-Foundation/react-bootstrap-web3-spa). That boilerplate is used to build a React app using the [react-boostrap library](https://www.npmjs.com/package/react-bootstrap).
+# nft-collection
 
-This repository adds [CapacitorJS](https://capacitorjs.com/) libraries and configuration, in order to compile the SPA into a native Android app APK file.
+This is a simple web app for showing off your collection of NFTs.
 
-- [Live Demo on Filecoin](https://bafybeibp6zaa7rjwamxagleukndta4il7w6hntztkq3oot222kzipw4bda.ipfs.dweb.link/)
-- [Download latest APK file](./android/apk/capacitor-web3-app.apk)
+This is a React single page app (SPA). Given a `bitcoincash` address, this app will display any NFTs held by that address which comply with [PS007](https://github.com/Permissionless-Software-Foundation/specifications/blob/master/ps007-token-data-schema.md) spec for token data.
+
+- Live App (coming soon)
+- GitHub pages (coming soon)
+- Filecoin (coming soon)
+- Android APK (coming soon)
 
 ## Installation
 ```bash
-git clone https://github.com/Permissionless-Software-Foundation/react-bootstrap-web3-spa
-cd react-bootstrap-web3-spa
+git clone https://github.com/Permissionless-Software-Foundation/nft-collection
+cd nft-collection
 npm install
 npm start
 npm run build

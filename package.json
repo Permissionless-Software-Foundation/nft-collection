@@ -1,6 +1,6 @@
 {
-  "name": "react-bootstrap-web3-android",
-  "version": "2.0.1",
+  "name": "nft-collection",
+  "version": "1.0.0",
   "dependencies": {
     "axios": "0.27.2",
     "bch-message-lib": "2.2.1",
