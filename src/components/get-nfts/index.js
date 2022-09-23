@@ -6,17 +6,22 @@
 import React from 'react'
 import { Container, Row, Col, Form, Button, Spinner } from 'react-bootstrap'
 import { SlpMutableData } from 'slp-mutable-data'
+import Jdenticon from '@chris.troutner/react-jdenticon'
+
+// Local libraries
+import TokenCard from './token-card.js'
 
 // let _this
 
-class GetBalance extends React.Component {
+class GetNfts extends React.Component {
   constructor (props) {
     super(props)
 
     this.state = {
       balance: '',
       textInput: '',
-      wallet: props.wallet
+      wallet: props.wallet,
+      tokens: []
     }
 
     // Encapsulate dependencies
@@ -31,6 +36,8 @@ class GetBalance extends React.Component {
   }
 
   render () {
+    const tokenCards = this.generateCards()
+
     return (
 
       <>
@@ -55,9 +62,35 @@ class GetBalance extends React.Component {
               {this.state.balance}
             </Col>
           </Row>
+          <br />
+
+          <Row>
+            {tokenCards}
+          </Row>
         </Container>
       </>
     )
+  }
+
+  generateCards () {
+    const tokens = this.state.tokens
+
+    const tokenCards = []
+
+    for (let i = 0; i < tokens.length; i++) {
+      const thisToken = tokens[i]
+      // console.log(`thisToken: ${JSON.stringify(thisToken, null, 2)}`)
+
+      const thisTokenCard = (
+        <TokenCard
+          token={thisToken}
+          key={`${thisToken.tokenId}`}
+        />
+      )
+      tokenCards.push(thisTokenCard)
+    }
+
+    return tokenCards
   }
 
   async handleGetBalance (event) {
@@ -87,28 +120,32 @@ class GetBalance extends React.Component {
       const nftCandidates = tokens.filter(x => x.qty === 1 && x.decimals === 0)
       console.log(`nftCandidates: ${JSON.stringify(nftCandidates, null, 2)}`)
 
-      const nfts = []
+      // Add the JDenticon icon
+      nftCandidates.map((x) => { x.icon = (<Jdenticon size='100' value={x.tokenId} />); return true })
 
-      // Hydrate the tokens with more data, and filter out any non-NFTs.
-      for (let i = 0; i < nftCandidates.length; i++) {
-        const thisToken = nftCandidates[i]
-
-        // Get token data for this token.
-        const tokenData = await this.slpMutableData.get.data(thisToken.tokenId)
-        console.log(`tokenData: ${JSON.stringify(tokenData, null, 2)}`)
-
-        thisToken.tokenData = tokenData
-
-        const category = this.categorizeToken(thisToken)
-        if (category !== 'fungible') {
-          nfts.push(thisToken)
-        }
-      }
-
-      console.log(`nfts: ${JSON.stringify(nfts, null, 2)}`)
+      // const nfts = []
+      //
+      // // Hydrate the tokens with more data, and filter out any non-NFTs.
+      // for (let i = 0; i < nftCandidates.length; i++) {
+      //   const thisToken = nftCandidates[i]
+      //
+      //   // Get token data for this token.
+      //   const tokenData = await this.slpMutableData.get.data(thisToken.tokenId)
+      //   console.log(`tokenData: ${JSON.stringify(tokenData, null, 2)}`)
+      //
+      //   thisToken.tokenData = tokenData
+      //
+      //   const category = this.categorizeToken(thisToken)
+      //   if (category !== 'fungible') {
+      //     nfts.push(thisToken)
+      //   }
+      // }
+      //
+      // console.log(`nfts: ${JSON.stringify(nfts, null, 2)}`)
 
       this.setState({
-        balance: `Balance: ${balance} sats, ${bchBalance} BCH`
+        balance: `Balance: ${balance} sats, ${bchBalance} BCH`,
+        tokens: nftCandidates
       })
     } catch (err) {
       this.setState({
@@ -162,4 +199,4 @@ class GetBalance extends React.Component {
   }
 }
 
-export default GetBalance
+export default GetNfts
