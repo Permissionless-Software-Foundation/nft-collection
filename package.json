@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "dependencies": {
     "@chris.troutner/react-jdenticon": "1.0.0",
+    "@chris.troutner/retry-queue": "1.0.5",
     "axios": "0.27.2",
     "bch-message-lib": "2.2.1",
     "bootstrap": "5.2.0",
