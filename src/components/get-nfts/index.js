@@ -200,7 +200,7 @@ class GetNfts extends React.Component {
 
       // Filter out any tokens that do not meet requirements to be NFTs.
       const nftCandidates = tokens.filter(x => x.qty === 1 && x.decimals === 0)
-      console.log(`nftCandidates: ${JSON.stringify(nftCandidates, null, 2)}`)
+      // console.log(`nftCandidates: ${JSON.stringify(nftCandidates, null, 2)}`)
 
       // Add the JDenticon icon
       nftCandidates.map((x) => {
@@ -230,7 +230,7 @@ class GetNfts extends React.Component {
   async lazyLoadTokenIcons (tokens) {
     for (let i = 0; i < tokens.length; i++) {
       const thisToken = tokens[i]
-      console.log(`thisToken: ${JSON.stringify(thisToken, null, 2)}`)
+      // console.log(`thisToken: ${JSON.stringify(thisToken, null, 2)}`)
 
       // Add the token data download to the queue.
       this.retryQueue.addToQueue(this.updateToken, thisToken)
@@ -329,7 +329,7 @@ class GetNfts extends React.Component {
   async categorizeToken (token) {
     try {
       const tokenData = token.tokenData
-      console.log(`categorizeTokens() tokenData: ${JSON.stringify(tokenData, null, 2)}`)
+      // console.log(`categorizeTokens() tokenData: ${JSON.stringify(tokenData, null, 2)}`)
 
       // console.log(`categorizeToken(): ${JSON.stringify(offerData, null, 2)}`)
 
