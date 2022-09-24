@@ -17,7 +17,8 @@ import NavMenu from './components/nav-menu'
 import AppBody from './components/app-body'
 
 // Default restURL for a back-end server.
-let serverUrl = 'https://free-bch.fullstack.cash'
+// let serverUrl = 'https://free-bch.fullstack.cash'
+let serverUrl = 'https://bchn.fullstack.cash/v5/'
 
 // Default alternative servers.
 const defaultServerOptions = [
