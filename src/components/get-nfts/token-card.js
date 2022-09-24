@@ -32,16 +32,11 @@ function TokenCard (props) {
               <br />
 
               <Row>
-                <Col>Balance:</Col>
-                <Col>{props.token.qty}</Col>
-              </Row>
-              <br />
-
-              <Row>
-                <Col>
+                <Col xs={4} />
+                <Col xs={4} style={{ textAlign: 'center' }}>
                   <InfoButton token={props.token} />
                 </Col>
-                <Col />
+                <Col xs={4} />
               </Row>
             </Container>
           </Card.Body>
