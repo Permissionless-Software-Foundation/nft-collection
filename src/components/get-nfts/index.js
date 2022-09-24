@@ -93,7 +93,7 @@ class GetNfts extends React.Component {
       // If the token does not have a defined category, then put it in the
       // 'uncagorized' category.
       if (!thisToken.category) {
-        thisToken.category = 'uncategorized'
+        thisToken.category = 'Uncategorized'
       }
 
       // If the token category does not exist in the collections object, add it.
@@ -243,7 +243,7 @@ class GetNfts extends React.Component {
 
       // Extract the category from the mutable data, if it exists.
       if (token.tokenData.mutableData.category) {
-        token.category = token.tokenData.mutableData.category
+        token.category = this.capitalizeFirstLetter(token.tokenData.mutableData.category)
       }
 
       // Signal that a token download has been attempted.
@@ -351,6 +351,8 @@ class GetNfts extends React.Component {
   // The first three are easy to categorize. The simple-nft is a fungible token
   // with a quantity of 1, decimals of 0, and no minting baton. Categorizing this
   // type of token is the main reason why this function exists.
+  //
+  // TODO: Rename this to detectNft()
   async categorizeToken (token) {
     try {
       const tokenData = token.tokenData
@@ -385,6 +387,18 @@ class GetNfts extends React.Component {
       console.error('Error in categorizeToken(): ', err)
       throw err
     }
+  }
+
+  // Given a string, this function will ensure the first letter is capitalized,
+  // and the rest of the word is lower case.
+  capitalizeFirstLetter (inStr) {
+    if (typeof inStr !== 'string') return ''
+
+    let outStr = inStr.toLowerCase()
+
+    outStr = outStr.charAt(0).toUpperCase() + outStr.slice(1)
+
+    return outStr
   }
 }
 
