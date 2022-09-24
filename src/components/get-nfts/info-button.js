@@ -39,11 +39,16 @@ function InfoButton (props) {
     setShow(true)
   }
 
-  // Convert the url property of the token to a link, if it matches common patterns.
-  let url = props.token.url
-  url = linkIfUrl(props.token.url)
-
   // console.log('props.token: ', props.token)
+
+  let tags = ''
+  let url = ''
+  let nsfw = false
+  if (props.token.tokenData) {
+    tags = props.token.tokenData.mutableData.tags.join(',')
+    url = linkIfUrl(props.token.tokenData.mutableData.fullSizedUrl)
+    nsfw = props.token.tokenData.mutableData.nsfw
+  }
 
   return (
     <>
@@ -74,18 +79,28 @@ function InfoButton (props) {
             </Row>
 
             <Row style={{ backgroundColor: '#eee' }}>
-              <Col xs={4}><b>Decimals</b>:</Col>
-              <Col xs={8}>{props.token.decimals}</Col>
+              <Col xs={4}><b>Category</b>:</Col>
+              <Col xs={8}>{props.token.category}</Col>
             </Row>
 
             <Row>
-              <Col xs={4}><b>Token Type</b>:</Col>
-              <Col xs={8}>{props.token.tokenType}</Col>
+              <Col xs={4}><b>Tags</b>:</Col>
+              <Col xs={8}>{tags}</Col>
             </Row>
 
-            <Row style={{ backgroundColor: '#eee', wordBreak: 'break-all' }}>
+            <Row style={{ backgroundColor: '#eee' }}>
+              <Col xs={4}><b>NFT Type</b>:</Col>
+              <Col xs={8}>{props.token.nftType}</Col>
+            </Row>
+
+            <Row style={{ wordBreak: 'break-all' }}>
               <Col xs={4}><b>URL</b>:</Col>
               <Col xs={8}>{url}</Col>
+            </Row>
+
+            <Row style={{ backgroundColor: '#eee' }}>
+              <Col xs={4}><b>NSFW</b>:</Col>
+              <Col xs={8}>{nsfw.toString()}</Col>
             </Row>
           </Container>
         </Modal.Body>
