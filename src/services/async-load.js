@@ -33,13 +33,13 @@ class AsyncLoad {
   async initWallet (restURL) {
     const options = {
       interface: 'consumer-api',
-      restURL,
-      noUpdate: true
+      restURL
     }
 
     const wallet = new this.BchWallet(null, options)
 
     await wallet.walletInfoPromise
+    await wallet.initialize()
     // console.log(`mnemonic: ${wallet.walletInfo.mnemonic}`)
 
     this.wallet = wallet
