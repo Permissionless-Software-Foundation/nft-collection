@@ -22,20 +22,22 @@ class NavMenu extends React.Component {
     // console.log(`selectedMenuItem: ${this.state.selectedMenuItem}`)
     // this.handleMenuClick(this.state.selectedMenuItem)
 
+    // <Nav.Link href='#' onClick={() => this.handleClickEvent(1)}>Placeholder2</Nav.Link>
+    // <Nav.Link href='#' onClick={() => this.handleClickEvent(2)}>Placeholder 3</Nav.Link>
+
     return (
       <>
         <Navbar collapseOnSelect expand='xxxl' bg='dark' variant='dark' style={{ paddingRight: '20px' }}>
           <Navbar.Brand href='#home' style={{ paddingLeft: '20px' }}>
             <Image src={Logo} thumbnail width='50' />{' '}
-            PSF Web3 Demo
+            PSF NFT Viewer
           </Navbar.Brand>
 
           <Navbar.Toggle aria-controls='responsive-navbar-nav' />
           <Navbar.Collapse id='responsive-navbar-nav'>
             <Nav className='mr-auto'>
-              <Nav.Link href='#' onClick={() => this.handleClickEvent(0)}>Check Balance</Nav.Link>
-              <Nav.Link href='#' onClick={() => this.handleClickEvent(1)}>Placeholder2</Nav.Link>
-              <Nav.Link href='#' onClick={() => this.handleClickEvent(2)}>Placeholder 3</Nav.Link>
+              <Nav.Link href='#' onClick={() => this.handleClickEvent(0)}>Get NFTs</Nav.Link>
+
             </Nav>
           </Navbar.Collapse>
         </Navbar>

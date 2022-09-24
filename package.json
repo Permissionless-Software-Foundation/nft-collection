@@ -2,6 +2,8 @@
   "name": "nft-collection",
   "version": "1.0.0",
   "dependencies": {
+    "@chris.troutner/react-jdenticon": "1.0.0",
+    "@chris.troutner/retry-queue": "1.0.5",
     "axios": "0.27.2",
     "bch-message-lib": "2.2.1",
     "bootstrap": "5.2.0",
@@ -10,6 +12,7 @@
     "react-bootstrap": "2.4.0",
     "react-dom": "18.2.0",
     "react-scripts": "5.0.1",
+    "slp-mutable-data": "2.2.3",
     "use-query-params": "1.2.3"
   },
   "scripts": {
