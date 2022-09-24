@@ -34,7 +34,7 @@ class GetNfts extends React.Component {
     this.retryQueue = new RetryQueue({ retryPeriod: 1000, concurrency: 3 })
 
     // Bind 'this' to event handlers
-    this.handleGetBalance = this.handleGetBalance.bind(this)
+    this.handleGetTokens = this.handleGetTokens.bind(this)
     this.updateToken = this.updateToken.bind(this)
 
     // _this = this
@@ -51,12 +51,12 @@ class GetNfts extends React.Component {
             <Col className='text-break' style={{ textAlign: 'center' }}>
               <Form>
                 <Form.Group className='mb-3' controlId='formBasicEmail'>
-                  <Form.Label>Enter a BCH address to check the balance.</Form.Label>
+                  <Form.Label>Enter a BCH address to retrieve the NFTs it holds.</Form.Label>
                   <Form.Control type='text' placeholder='bitcoincash:qqlrzp23w08434twmvr4fxw672whkjy0py26r63g3d' onChange={e => this.setState({ textInput: e.target.value })} />
                 </Form.Group>
 
-                <Button variant='primary' onClick={this.handleGetBalance}>
-                  Check Balance
+                <Button variant='primary' onClick={this.handleGetTokens}>
+                  Get NFT Collection
                 </Button>
               </Form>
             </Col>
@@ -157,7 +157,7 @@ class GetNfts extends React.Component {
     return allCategories
   }
 
-  async handleGetBalance (event) {
+  async handleGetTokens (event) {
     try {
       const textInput = this.state.textInput
 
@@ -166,7 +166,7 @@ class GetNfts extends React.Component {
       if (!textInput.includes('bitcoincash:')) return
 
       this.setState({
-        balance: (<span>Retrieving balance... <Spinner animation='border' /></span>)
+        balance: (<span>Retrieving NFTs... <Spinner animation='border' /></span>)
       })
 
       const balance = await this.state.wallet.getBalance(textInput)
@@ -175,7 +175,7 @@ class GetNfts extends React.Component {
       // const utxos = await this.state.wallet.getUtxos(textInput)
       // console.log(`utxos: ${JSON.stringify(utxos, null, 2)}`)
 
-      const bchBalance = this.state.wallet.bchjs.BitcoinCash.toBitcoinCash(balance)
+      // const bchBalance = this.state.wallet.bchjs.BitcoinCash.toBitcoinCash(balance)
 
       const tokens = await this.state.wallet.listTokens(textInput)
       // console.log(`tokens: ${JSON.stringify(tokens, null, 2)}`)
@@ -197,7 +197,8 @@ class GetNfts extends React.Component {
       this.lazyLoadTokenIcons(nftCandidates)
 
       this.setState({
-        balance: `Balance: ${balance} sats, ${bchBalance} BCH`,
+        // balance: `Balance: ${balance} sats, ${bchBalance} BCH`,
+        balance: '',
         tokens: nftCandidates,
         iconsAreLoaded: false
       })
