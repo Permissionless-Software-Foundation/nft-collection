@@ -8,10 +8,12 @@ import { Container, Row, Col, Form, Button, Spinner, Card } from 'react-bootstra
 import { SlpMutableData } from 'slp-mutable-data'
 import Jdenticon from '@chris.troutner/react-jdenticon'
 import RetryQueue from '@chris.troutner/retry-queue'
-// import axios from 'axios'
+import { useQueryParam, StringParam } from 'use-query-params'
 
 // Local libraries
 import TokenCard from './token-card.js'
+
+let targetBchAddr = ''
 
 // let _this
 
@@ -40,12 +42,26 @@ class GetNfts extends React.Component {
     // _this = this
   }
 
+  async componentDidMount () {
+    console.log('targetBchAddr: ', targetBchAddr)
+
+    if (targetBchAddr.includes('bitcoincash:')) {
+      await this.setState({ textInput: targetBchAddr })
+
+      console.log(`Starting handleGetTokens() with ${targetBchAddr}`)
+
+      // Should I await?
+      this.handleGetTokens()
+    }
+  }
+
   render () {
     const tokenCards = this.generateCards()
 
     return (
 
       <>
+        <GetRestUrl />
         <Container>
           <Row>
             <Col className='text-break' style={{ textAlign: 'center' }}>
@@ -160,6 +176,8 @@ class GetNfts extends React.Component {
   async handleGetTokens (event) {
     try {
       const textInput = this.state.textInput
+
+      console.log(`Getting NFTs for address ${textInput}`)
 
       // Exit on invalid input
       if (!textInput) return
@@ -355,6 +373,19 @@ class GetNfts extends React.Component {
 
     return outStr
   }
+}
+
+// Get the restURL query parameter.
+function GetRestUrl (props) {
+  const [bchAddr] = useQueryParam('addr', StringParam)
+  // console.log('restURL: ', restURL)
+
+  if (bchAddr) {
+    targetBchAddr = bchAddr
+    // queryParamExists = true
+  }
+
+  return (<></>)
 }
 
 export default GetNfts
