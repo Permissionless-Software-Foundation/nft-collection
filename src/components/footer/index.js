@@ -59,6 +59,9 @@ function Footer (props) {
             <li>
               <a href={config.radicleUrl} target='_blank' rel='noreferrer'>Radicle</a>
             </li>
+            <li>
+              <a href={config.filecoinRepo} target='_blank' rel='noreferrer'>Filecoin</a>
+            </li>
           </ul>
         </Col>
       </Row>
