@@ -6,8 +6,8 @@ This is a React single page app (SPA). Given a `bitcoincash` address, this app w
 
 - [Live App](https://nft-collector.fullstack.cash/)
 - [GitHub pages](https://permissionless-software-foundation.github.io/nft-collection/)
-- Filecoin (coming soon)
-- Android APK (coming soon)
+- [Android APK](https://github.com/Permissionless-Software-Foundation/nft-collection/raw/master/apk/nft-collector.apk)
+- [Filecoin](https://bafybeic6d4kr23hrcxb4q75m27zeejbfdljbjzi4tkrhfog65iakqfsuci.ipfs.dweb.link/)
 
 ## Installation
 ```bash
