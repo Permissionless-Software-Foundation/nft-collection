@@ -4,8 +4,8 @@ This is a simple web app for showing off your collection of NFTs.
 
 This is a React single page app (SPA). Given a `bitcoincash` address, this app will display any NFTs held by that address which comply with [PS007](https://github.com/Permissionless-Software-Foundation/specifications/blob/master/ps007-token-data-schema.md) spec for token data.
 
-- Live App (coming soon)
-- GitHub pages (coming soon)
+- [Live App](https://nft-collector.fullstack.cash/)
+- [GitHub pages](https://permissionless-software-foundation.github.io/nft-collection/)
 - Filecoin (coming soon)
 - Android APK (coming soon)
 
