@@ -44,12 +44,12 @@ This open source software is developed and maintained by the [Permissionless Sof
 ## Repo Backup
 This GitHub repository is backed up on [Radicle](https://radicle.network/get-started.html). If GitHub ever censors this respository, the code can be found in this alternative repository. [Here are extra notes on working with Radicle](https://christroutner.github.io/trouts-blog/docs/censorship/radicle).
 
-- Project ID: rad:git:hnrkd5cjwwb5tzx37hq9uqm5ubon7ee468xcy
-- [Repo on Rad Website](https://app.radicle.network/seeds/maple.radicle.garden/rad:git:hnrkd5cjwwb5tzx37hq9uqm5ubon7ee468xcy/remotes/hyyycncbn9qzqmobnhjq9rry6t4mbjiadzjoyhaknzxjcz3cxkpfpc)
+- Project ID: rad:git:hnrkbu9q9bxk7yy67ygi4k6apw9qdrbz5wfoy
+- [Repo on Rad Website](https://app.radicle.network/seeds/radicle.fullstackcash.nl/rad:git:hnrkbu9q9bxk7yy67ygi4k6apw9qdrbz5wfoy/remotes/hyyycncbn9qzqmobnhjq9rry6t4mbjiadzjoyhaknzxjcz3cxkpfpc)
 
 This can be cloned from [PSF](https://psfoundation.info) Radicle seed node with one of these commands:
-- `rad clone rad:git:hnrkd5cjwwb5tzx37hq9uqm5ubon7ee468xcy --seed radicle.fullstackcash.nl`
-- `rad clone rad:git:hnrkd5cjwwb5tzx37hq9uqm5ubon7ee468xcy --seed maple.radicle.garden`
+- `rad clone rad:git:hnrkbu9q9bxk7yy67ygi4k6apw9qdrbz5wfoy --seed radicle.fullstackcash.nl`
+- `rad clone rad:git:hnrkbu9q9bxk7yy67ygi4k6apw9qdrbz5wfoy --seed willow.radicle.garden`
 
 ## License
 [MIT](./LICENSE.md)
