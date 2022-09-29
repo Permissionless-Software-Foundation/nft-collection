@@ -19,7 +19,7 @@ const BchMessageLib = require('bch-message-lib/index')
 async function publishToBch (cid) {
   try {
     // Get the Filecoin token from the environment variable.
-    const wif = process.env.REACT_BOOTSTRAP_WEB3_SPA_WIF
+    const wif = process.env.NFT_COLLECTOR_WIF
     if (!wif) {
       throw new Error(
         'WIF private key not detected. Get a private key from https://wallet.fullstack.cash and save it to the REACT_BOOTSTRAP_WEB3_SPA_WIF environment variable.'
