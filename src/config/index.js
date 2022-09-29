@@ -12,6 +12,7 @@ const config = {
   // Site mirrors
   fullstackUrl: 'https://nft-collector.fullstack.cash',
   ghPagesUrl: 'https://permissionless-software-foundation.github.io/nft-collection/',
+  apkUrl: 'https://github.com/Permissionless-Software-Foundation/bch-wallet-web3-android/blob/master/android/apk/bch-web3-wallet.apk',
 
   // Backup Info that goes into the Footer.
   ghRepo: 'https://github.com/Permissionless-Software-Foundation/react-bootstrap-web3-spa',
