@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/nft-collection/static/css/main.505581f3.css",
-    "main.js": "/nft-collection/static/js/main.6d1db45c.js",
+    "main.js": "/nft-collection/static/js/main.a7ddc4cf.js",
     "static/media/psf-logo.png": "/nft-collection/static/media/psf-logo.3485139af901ffeaf77f.png",
     "index.html": "/nft-collection/index.html",
     "main.505581f3.css.map": "/nft-collection/static/css/main.505581f3.css.map",
-    "main.6d1db45c.js.map": "/nft-collection/static/js/main.6d1db45c.js.map"
+    "main.a7ddc4cf.js.map": "/nft-collection/static/js/main.a7ddc4cf.js.map"
   },
   "entrypoints": [
     "static/css/main.505581f3.css",
-    "static/js/main.6d1db45c.js"
+    "static/js/main.a7ddc4cf.js"
   ]
 }
