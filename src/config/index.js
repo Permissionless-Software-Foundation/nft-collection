@@ -9,8 +9,11 @@ const config = {
   // BCH address used to point to the latest version of the IPFS CID.
   appBchAddr: 'bitcoincash:qztv87ppjh82v527jq2drp4u8rzzn63r5cmhth2zzm',
 
+  // Site mirrors
+  fullstackUrl: 'https://nft-collector.fullstack.cash',
+  ghPagesUrl: 'https://permissionless-software-foundation.github.io/nft-collection/',
+
   // Backup Info that goes into the Footer.
-  ghPagesUrl: 'https://permissionless-software-foundation.github.io/react-bootstrap-web3-spa/',
   ghRepo: 'https://github.com/Permissionless-Software-Foundation/react-bootstrap-web3-spa',
   radicleUrl: 'https://app.radicle.network/seeds/maple.radicle.garden/rad:git:hnrkd5cjwwb5tzx37hq9uqm5ubon7ee468xcy/remotes/hyyycncbn9qzqmobnhjq9rry6t4mbjiadzjoyhaknzxjcz3cxkpfpc'
 

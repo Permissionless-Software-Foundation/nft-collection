@@ -36,6 +36,9 @@ function Footer (props) {
           <h6>Site Mirrors</h6>
           <ul>
             <li>
+              <a href={config.fullstackUrl} target='_blank' rel='noreferrer'>FullStack.cash</a>
+            </li>
+            <li>
               <a href={config.ghPagesUrl} target='_blank' rel='noreferrer'>GitHub Pages</a>
             </li>
             <li>
