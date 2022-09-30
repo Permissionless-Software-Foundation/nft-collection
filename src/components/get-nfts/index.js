@@ -12,6 +12,7 @@ import { useQueryParam, StringParam } from 'use-query-params'
 
 // Local libraries
 import TokenCard from './token-card.js'
+import DemoFilter from './demo.js'
 
 let targetBchAddr = ''
 
@@ -34,6 +35,7 @@ class GetNfts extends React.Component {
       wallet: this.state.wallet
     })
     this.retryQueue = new RetryQueue({ retryPeriod: 1000, concurrency: 3 })
+    this.demoFilter = new DemoFilter()
 
     // Bind 'this' to event handlers
     this.handleGetTokens = this.handleGetTokens.bind(this)
@@ -187,16 +189,12 @@ class GetNfts extends React.Component {
         balance: (<span>Retrieving NFTs... <Spinner animation='border' /></span>)
       })
 
-      const balance = await this.state.wallet.getBalance(textInput)
-      console.log('balance: ', balance)
-
-      // const utxos = await this.state.wallet.getUtxos(textInput)
-      // console.log(`utxos: ${JSON.stringify(utxos, null, 2)}`)
-
-      // const bchBalance = this.state.wallet.bchjs.BitcoinCash.toBitcoinCash(balance)
-
-      const tokens = await this.state.wallet.listTokens(textInput)
+      let tokens = await this.state.wallet.listTokens(textInput)
       // console.log(`tokens: ${JSON.stringify(tokens, null, 2)}`)
+
+      // If this is the demo address, then filter out any unexpected tokens.
+      tokens = this.demoFilter.filterDemoTokens(textInput, tokens)
+      // console.log(`tokens after demoFilter: ${JSON.stringify(tokens, null, 2)}`)
 
       // Filter out any tokens that do not meet requirements to be NFTs.
       const nftCandidates = tokens.filter(x => x.qty === 1 && x.decimals === 0)
