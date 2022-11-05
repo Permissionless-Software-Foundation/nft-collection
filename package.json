@@ -12,7 +12,7 @@
     "react-bootstrap": "2.4.0",
     "react-dom": "18.2.0",
     "react-scripts": "5.0.1",
-    "slp-mutable-data": "2.2.3",
+    "slp-mutable-data": "2.3.9",
     "use-query-params": "1.2.3"
   },
   "scripts": {

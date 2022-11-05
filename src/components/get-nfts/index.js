@@ -32,7 +32,9 @@ class GetNfts extends React.Component {
 
     // Encapsulate dependencies
     this.slpMutableData = new SlpMutableData({
-      wallet: this.state.wallet
+      wallet: this.state.wallet,
+      ipfsGatewayUrl: 'p2wdb-gateway-678.fullstack.cash',
+      serverURL: 'https://p2wdb.fullstack.cash'
     })
     this.retryQueue = new RetryQueue({ retryPeriod: 1000, concurrency: 3 })
     this.demoFilter = new DemoFilter()
@@ -266,6 +268,7 @@ class GetNfts extends React.Component {
       // in the mutable data.
       if (token.tokenData.mutableData.tokenIcon) {
         const tokenIcon = token.tokenData.mutableData.tokenIcon
+        console.log(`tokenIcon: ${tokenIcon}`)
 
         // Be default, link to the token icon.
         let newIcon = (
