@@ -1,0 +1,73 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  background-image: url("../../components/token-tiger/assets/Hexagon.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+}
+
+.logo {
+  margin: 0 auto;
+  padding: 0;
+  height: 200px;
+  width: 350px;
+}
+
+.logoText {
+  color: #3b9f6f;
+  font-size: 1.8rem;
+  letter-spacing: 0.1em;
+  font-weight: 400;
+  font-family: "Russo One", sans-serif;
+  text-align: center;
+  padding: 1rem;
+}
+
+.tm {
+  font-size: 0.5em;
+  font-weight: 200;
+}
+
+.login {
+  display: flex;
+  flex-direction: column;
+  height: 500px;
+  width: 400px;
+  background-color: rgba(0, 0, 0, 0.99);
+  border: 1px solid rgba(255, 255, 255, 0.048);
+  border-right: none;
+  color: #fff;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(255, 255, 255, 0.048);
+  border-left: none;
+  height: 500px;
+  width: 400px;
+  color: #fff;
+}
+
+@media screen and (max-width: 1024px) {
+  .container {
+    transform: scale(1.5);
+  }
+  .info {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .login {
+    transform: scale(0.65);
+    border: 1px solid rgba(255, 255, 255, 0.253);
+  }
+  .info {
+    display: none;
+  }
+}

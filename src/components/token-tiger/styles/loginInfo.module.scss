@@ -1,0 +1,45 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    text-align: center;
+    background-image: url("../assets/Sprinkle.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    position: relative;
+    z-index: 9999;
+  
+    h2 {
+      padding: 0;
+      margin: 0;
+    }
+  
+    p {
+      padding: 0;
+      margin: 0;
+      font-size: 0.7em;
+      width: 60%;
+      color: #13eb8375;
+      margin-top: 10px;
+    }
+  }
+  
+  .imgContainer {
+    margin-top: 10px;
+  }
+  
+  .tiger {
+    width: 50%;
+    margin-bottom: 1em;
+  }
+  
+  @media screen and (max-width: 1024px) {
+    .container {
+      transform: scale(1.5);
+    }
+  }
+  
