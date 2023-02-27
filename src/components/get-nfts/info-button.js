@@ -44,7 +44,7 @@ function InfoButton (props) {
   let tags = ''
   let url = ''
   let nsfw = false
-  if (props.token.tokenData) {
+  if (props.token.tokenData && props.token.tokenData.mutableData) {
     tags = props.token.tokenData.mutableData.tags.join(',')
     url = linkIfUrl(props.token.tokenData.mutableData.fullSizedUrl)
     nsfw = props.token.tokenData.mutableData.nsfw

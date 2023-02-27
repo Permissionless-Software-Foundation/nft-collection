@@ -256,6 +256,7 @@ class GetNfts extends React.Component {
       token.tokenData = tokenData
 
       const category = await this.categorizeToken(token)
+      console.log('category: ', category)
       if (category === 'fungible') {
       // nfts.push(thisToken)
         console.log(`Ignoring fungible token ${token.ticker} (${token.tokenId})`)
@@ -278,29 +279,39 @@ class GetNfts extends React.Component {
         const tokenIcon = tokenData.tokenIcon
         console.log(`tokenIcon: ${tokenIcon}`)
 
-        // Be default, link to the token icon.
-        let newIcon = (
-          <a href={tokenIcon} target='_blank' rel='noreferrer'>
-            <Card.Img src={tokenIcon} style={{ width: '200px' }} />
-          </a>
-        )
+        let newIcon
 
-        // If the fullSizedUrl is specified, link to that.
-        const fullSizedUrl = token.tokenData.mutableData.fullSizedUrl
-        if (fullSizedUrl) {
+        // Only execute if the token icon does equal the default value of
+        // tokens.bch.sx. That indicates that there is no icon available.
+        if (!tokenIcon.includes('tokens.bch.sx')) {
+          // Be default, link to the token icon.
           newIcon = (
-            <a href={fullSizedUrl} target='_blank' rel='noreferrer'>
+            <a href={tokenIcon} target='_blank' rel='noreferrer'>
               <Card.Img src={tokenIcon} style={{ width: '200px' }} />
             </a>
           )
+
+          // If the fullSizedUrl is specified, link to that.
+          if (token.tokenData.mutableData) {
+            const fullSizedUrl = token.tokenData.mutableData.fullSizedUrl
+            if (fullSizedUrl) {
+              newIcon = (
+                <a href={fullSizedUrl} target='_blank' rel='noreferrer'>
+                  <Card.Img src={tokenIcon} style={{ width: '200px' }} />
+                </a>
+              )
+            }
+
+            // Extract the category from the mutable data, if it exists.
+            if (token.tokenData.mutableData.category) {
+              token.category = this.capitalizeFirstLetter(token.tokenData.mutableData.category)
+            }
+          } else {
+            console.log(`Token ${token.tokenData.tokenId} has no mutable data. Skipping.`)
+          }
+
+          token.icon = newIcon
         }
-
-        token.icon = newIcon
-      }
-
-      // Extract the category from the mutable data, if it exists.
-      if (token.tokenData.mutableData.category) {
-        token.category = this.capitalizeFirstLetter(token.tokenData.mutableData.category)
       }
 
       // Signal that a token download has been attempted.
