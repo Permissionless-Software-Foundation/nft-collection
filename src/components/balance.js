@@ -100,6 +100,7 @@ class GetBalance extends React.Component {
         thisToken.tokenData = tokenData
 
         const category = this.categorizeToken(thisToken)
+        console.log('category: ', category)
         if (category !== 'fungible') {
           nfts.push(thisToken)
         }
